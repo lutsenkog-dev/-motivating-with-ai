@@ -174,11 +174,16 @@
     box-shadow: 0 1px 8px rgba(0,0,0,0.07);
     border-left: 4px solid var(--blue);
   }
-  .card.green { border-left-color: var(--green); }
-  .card.teal  { border-left-color: var(--teal); }
-  .card.gold  { border-left-color: var(--gold); }
-  .card.brown { border-left-color: #6B4226; }
-  .card.purple{ border-left-color: #553C7B; }
+  .card.green  { border-left-color: var(--green); }
+  .card.teal   { border-left-color: var(--teal); }
+  .card.gold   { border-left-color: var(--gold); }
+  .card.brown  { border-left-color: #6B4226; }
+  .card.purple { border-left-color: #553C7B; }
+  input[type="checkbox"] { width:16px; height:16px; accent-color: var(--green); cursor:pointer; }
+  label { cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+  @media (prefers-color-scheme: dark) {
+    .card.green, .card.teal, .card.gold, .card.brown, .card.purple { background: #162030; }
+  }
 
   .card-tag {
     font-size: 10px;
@@ -387,6 +392,9 @@
   <button class="nav-tab" onclick="showTab('stations')" role="tab">🔬 Stations A & B</button>
   <button class="nav-tab" onclick="showTab('gallery')" role="tab">🎯 Gallery</button>
   <button class="nav-tab" onclick="showTab('prompts')" role="tab">✍ RTF & PARTS</button>
+  <button class="nav-tab" onclick="showTab('challenges')" role="tab">⚡ Challenges</button>
+  <button class="nav-tab" onclick="showTab('mmap')" role="tab">🗺 Motivation Map</button>
+  <button class="nav-tab" onclick="showTab('exit')" role="tab">✅ Exit Ticket</button>
 </nav>
 
 <div class="content">
@@ -599,6 +607,185 @@
     <div class="prompt-label green" style="margin-top:12px">FULL PROMPT</div>
     <div class="prompt-box green" id="p-parts-ex">"Act as a reflection coach. I have just received difficult feedback and feel like giving up. Ask me one question at a time — not to evaluate or advise, only to help me think clearly about what I can control. Start now."</div>
     <button class="copy-btn green" onclick="copyText('p-parts-ex', this)">📋 Copy prompt</button>
+  </div>
+</div>
+
+<!-- ── CHALLENGES ───────────────────────────────────────────── -->
+<div id="tab-challenges" class="section">
+  <div class="section-title">Classroom Challenges</div>
+  <div class="section-sub">Choose one situation that feels closest to your classroom experience. Your table will use it as the context for the technique on your card.</div>
+
+  <div class="card" style="border-left-color:#1D4E89; margin-bottom:14px">
+    <div class="card-tag" style="color:#1D4E89">Situation 1</div>
+    <h3>"They don't see the point"</h3>
+    <p>You are explaining an important topic, but many students are only working for the grade. They ask, "Will this be on the test?" rather than "Why does this matter?" They complete the tasks, but show little curiosity or personal interest. You want them to see the value of learning beyond assessment.</p>
+    <p style="margin-top:8px;font-style:italic;color:#666">→ Best technique: <strong>Debate Partner</strong></p>
+  </div>
+
+  <div class="card green" style="margin-bottom:14px">
+    <div class="card-tag">Situation 2</div>
+    <h3>"They don't feel heard"</h3>
+    <p>You ask questions, but only a few students respond. Most stay silent, even when they have good ideas. After class, one student shares an insightful comment and says, "I just didn't want to say it in front of everyone." You want every student to feel that their voice matters.</p>
+    <p style="margin-top:8px;font-style:italic;color:#666">→ Best technique: <strong>Role Play</strong></p>
+  </div>
+
+  <div class="card brown" style="border-left-color:#6B4226; margin-bottom:14px">
+    <div class="card-tag" style="color:#6B4226">Situation 3</div>
+    <h3>"They are afraid to be wrong"</h3>
+    <p>You ask an open question. Students avoid answering because they are worried about making mistakes in front of their classmates. They would rather stay silent than risk giving an imperfect answer. You want to create a classroom where mistakes are part of learning.</p>
+    <p style="margin-top:8px;font-style:italic;color:#666">→ Best technique: <strong>Error Detective</strong></p>
+  </div>
+
+  <div class="card" style="border-left-color:#3D4F61; margin-bottom:14px">
+    <div class="card-tag" style="color:#3D4F61">Situation 4</div>
+    <h3>"They give up too easily"</h3>
+    <p>A student receives a disappointing mark on the first assignment. Although you provide constructive feedback, they stop trying. Their work becomes weaker, they participate less, and they begin to believe they simply are not good at the subject. You want to rebuild their confidence.</p>
+    <p style="margin-top:8px;font-style:italic;color:#666">→ Best technique: <strong>Reflection Coach</strong></p>
+  </div>
+
+  <div class="card purple" style="margin-bottom:14px">
+    <div class="card-tag">Situation 5</div>
+    <h3>"They are bored"</h3>
+    <p>Some students finish every task much faster than everyone else. They wait while others catch up and gradually lose interest. The work is simply not challenging enough for them. You want to keep these students engaged without leaving others behind.</p>
+    <p style="margin-top:8px;font-style:italic;color:#666">→ Best technique: <strong>Creative Co-author</strong></p>
+  </div>
+
+  <div class="card gold" style="border-left-color:#7B5E00; margin-bottom:14px">
+    <div class="card-tag" style="color:#7B5E00">Situation 6</div>
+    <h3>"They feel overwhelmed"</h3>
+    <p>Some students are struggling to keep up with the course. They are not lazy — they simply don't know where to start. Their assignments become incomplete or very general, and they rarely ask for help. You want to help them regain confidence and make steady progress.</p>
+    <p style="margin-top:8px;font-style:italic;color:#666">→ Best technique: <strong>Scenario Generator</strong></p>
+  </div>
+</div>
+
+<!-- ── MOTIVATION MAP ────────────────────────────────────────── -->
+<div id="tab-mmap" class="section">
+  <div class="section-title green">Motivation Map</div>
+  <div class="section-sub">Design one AI-supported moment for your own lesson or course. Be specific — a real class, a real concept, a real student challenge.</div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 1</div>
+    <h3>My lesson / unit / course</h3>
+    <p>Subject area &amp; level (secondary / HE):</p>
+    <div style="border-bottom:1.5px solid #ccc; margin:10px 0 18px; min-height:28px"></div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 2</div>
+    <h3>The bottleneck I am targeting</h3>
+    <div style="display:flex; gap:16px; flex-wrap:wrap; margin:10px 0 8px; font-size:14px">
+      <label><input type="checkbox"> Autonomy</label>
+      <label><input type="checkbox"> Competence</label>
+      <label><input type="checkbox"> Relatedness</label>
+    </div>
+    <p>What specifically breaks down for students here?</p>
+    <div style="border-bottom:1.5px solid #ccc; margin:8px 0 4px; min-height:28px"></div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 3</div>
+    <h3>Am I working on motivation or engagement?</h3>
+    <div style="display:flex; gap:16px; flex-wrap:wrap; margin:10px 0; font-size:14px">
+      <label><input type="checkbox"> Motivation — WHY they learn</label>
+      <label><input type="checkbox"> Engagement — HOW they participate</label>
+      <label><input type="checkbox"> Both</label>
+    </div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 4</div>
+    <h3>The AI technique I will use</h3>
+    <div style="display:flex; gap:16px; flex-wrap:wrap; margin:10px 0; font-size:14px">
+      <label><input type="checkbox"> Instant Feedback</label>
+      <label><input type="checkbox"> Socratic Dialogue</label>
+      <label><input type="checkbox"> Gallery technique →</label>
+    </div>
+    <div style="border-bottom:1.5px solid #ccc; margin:8px 0 4px; min-height:28px"></div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 5 — use PARTS</div>
+    <h3>The prompt I will give students</h3>
+    <div style="background:#D8F0E4;border-radius:8px;padding:12px 14px;margin:10px 0 14px;font-size:13px;color:#1A2332">
+      <strong>RTF + Purpose + Audience = PARTS</strong><br>
+      <span style="color:#555">R: Role · T: Task · F: Format · P: Purpose · A: Audience · S: Style</span>
+    </div>
+    <div style="display:grid;gap:8px">
+      <div><strong style="font-size:12px;color:#2A6B4A">P — Why is the student doing this?</strong><div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:4px"></div></div>
+      <div><strong style="font-size:12px;color:#2A6B4A">A — Who is the AI speaking to?</strong><div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:4px"></div></div>
+      <div><strong style="font-size:12px;color:#2A6B4A">R — Who will AI be?</strong><div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:4px"></div></div>
+      <div><strong style="font-size:12px;color:#2A6B4A">T — What specifically will AI do?</strong><div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:4px"></div></div>
+      <div><strong style="font-size:12px;color:#2A6B4A">S — How should AI respond?</strong><div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:4px"></div></div>
+    </div>
+    <p style="margin-top:14px"><strong>My full prompt:</strong></p>
+    <div style="border-bottom:1.5px solid #ccc;min-height:28px;margin-top:6px"></div>
+    <div style="border-bottom:1.5px solid #ccc;min-height:28px;margin-top:8px"></div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 6</div>
+    <h3>Where AI helps — and where it falls short</h3>
+    <p>AI helps with:</p>
+    <div style="border-bottom:1.5px solid #ccc;min-height:24px;margin:6px 0 12px"></div>
+    <p>AI falls short on:</p>
+    <div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:6px"></div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <div class="card-tag green">Field 7</div>
+    <h3>One observable sign that it worked</h3>
+    <div style="display:flex; gap:16px; flex-wrap:wrap; margin:10px 0; font-size:14px">
+      <label><input type="checkbox"> Behavioural</label>
+      <label><input type="checkbox"> Emotional</label>
+      <label><input type="checkbox"> Cognitive</label>
+    </div>
+    <p>I will know it worked when I see / hear:</p>
+    <div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:6px"></div>
+  </div>
+</div>
+
+<!-- ── EXIT TICKET ───────────────────────────────────────────── -->
+<div id="tab-exit" class="section">
+  <div class="section-title green">Exit Ticket</div>
+  <div class="section-sub">Before you leave — one commitment.</div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <h3>In my next lesson or course, I will try:</h3>
+    <div style="border-bottom:1.5px solid #ccc;min-height:28px;margin:12px 0 8px"></div>
+    <div style="border-bottom:1.5px solid #ccc;min-height:28px;margin-bottom:8px"></div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <h3>I will know it worked when I observe:</h3>
+    <div style="margin:14px 0; display:grid; gap:12px">
+      <div>
+        <label style="font-size:13px;font-weight:600;color:#2A6B4A"><input type="checkbox" style="margin-right:8px"> Behavioural — students will:</label>
+        <div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:6px"></div>
+      </div>
+      <div>
+        <label style="font-size:13px;font-weight:600;color:#2A6B4A"><input type="checkbox" style="margin-right:8px"> Emotional — students will seem / say:</label>
+        <div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:6px"></div>
+      </div>
+      <div>
+        <label style="font-size:13px;font-weight:600;color:#2A6B4A"><input type="checkbox" style="margin-right:8px"> Cognitive — students will produce / ask:</label>
+        <div style="border-bottom:1.5px solid #ccc;min-height:24px;margin-top:6px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green" style="padding:20px; margin-bottom:14px">
+    <h3>One thing I am still uncertain about:</h3>
+    <div style="border-bottom:1.5px solid #ccc;min-height:28px;margin:12px 0 8px"></div>
+  </div>
+
+  <div style="background:#D8F0E4;border-radius:12px;padding:20px;border-left:4px solid #2A6B4A; margin-bottom:14px">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:#2A6B4A;margin-bottom:10px">ONE WEEK CHALLENGE</div>
+    <p style="font-size:14px;color:#1A2332;margin-bottom:8px">After you try what you just committed to — scan QR 2 and tell us what happened. Two sentences. We will share the results.</p>
+    <p style="font-size:13px;font-style:italic;color:#2A6B4A">What did you try? · What happened? · Would you use it again?</p>
+  </div>
+
+  <div style="background:#F0F4F8;border-radius:12px;padding:20px;border-left:4px solid #5A6A7A">
+    <p style="font-size:14px;font-style:italic;color:#444;line-height:1.7">"AI is strong on behavioural and cognitive engagement — a tireless practice partner. But emotional engagement and deep motivation still come from you: seeing the student, naming their growth, making the material matter."</p>
   </div>
 </div>
 
